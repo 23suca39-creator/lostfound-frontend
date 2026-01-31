@@ -17,7 +17,7 @@ const AddItem = ({ fetchItems }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/api/items", item);
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/items`, item);
     setItem({ userName: "", phoneNumber: "", itemName: "", description: "", type: "LOST" });
     fetchItems();
   };

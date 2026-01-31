@@ -7,7 +7,7 @@ function App() {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-    const res = await axios.get("http://localhost:8080/api/items");
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/items`);
     setItems(res.data);
   };
 

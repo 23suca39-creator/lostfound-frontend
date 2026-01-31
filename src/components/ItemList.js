@@ -5,12 +5,12 @@ const ItemList = ({ items, fetchItems }) => {
   const [editingItem, setEditingItem] = useState(null);
 
   const markReturned = async (id) => {
-    await axios.put(`http://localhost:8080/api/items/${id}/return`);
+    await axios.put(`${process.env.REACT_APP_API_URL}/api/items/${id}/return`);
     fetchItems();
   };
 
   const deleteItem = async (id) => {
-    await axios.delete(`http://localhost:8080/api/items/${id}`);
+    await axios.delete(`${process.env.REACT_APP_API_URL}/api/items/${id}`);
     fetchItems();
   };
 
@@ -23,7 +23,7 @@ const ItemList = ({ items, fetchItems }) => {
   };
 
   const saveEdit = async () => {
-    await axios.put(`http://localhost:8080/api/items/${editingItem.id}`, editingItem);
+    await axios.put(`${process.env.REACT_APP_API_URL}/api/items/${editingItem.id}`, editingItem);
     setEditingItem(null);
     fetchItems();
   };
